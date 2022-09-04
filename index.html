@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Quiz</title>
+    <link src="stylesheet" href="./assets/css/style.css">
+
+</head>
+<body>
+    <header>
+        <div id="highScoreLink"> <a href="#"></a>View HighScores</div>
+        <div id="timer">Time: </div>
+    </header>
+    <main>
+        <section id="startPage">
+            <h1>Coding Quiz Challenge</h1>
+
+            <p>Buckle up butter cup, your about to get your shit rocked </p>
+
+            <button>Start the Quiz</button>
+        </section>
+
+        <section class="card" id="questionPage">
+            <h2 id="question"> </h2>
+            <ul id="answers"> 
+                <li id="answer1"></li>
+                <li id="answer2"></li>
+                <li id="answer3"></li>
+                <li id="answer4"></li>
+            </ul>
+            <div id="rightOrWrong"> </div>
+            
+        </section>
+
+        <section class="card" id="submissionPage">
+            <h2> All Done</h2>
+                <p> Your final score is ...<span id="finalScore"></span></p>
+            
+                <p> Enter intials: <input type="text"></p>
+                <button> Submit</button>
+        </section>
+
+    </main>
+    <script src="./assets/javascript/quiz.js"></script>
+</body>
+</html>
