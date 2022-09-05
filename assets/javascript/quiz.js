@@ -1,7 +1,8 @@
 var starterButton = document.getElementById("startBtn")
 var timerEl = document.getElementById("counter");
-
-
+var seeCard = document.querySelectorAll(".card-out")
+var noSeeCard = document.querySelectorAll(".card-hidden")
+var step = "1"
 // var timeLeft = 90;
 
 function countdown() {
@@ -16,9 +17,12 @@ function countdown() {
         }
     }, 1000);
 }
-var qPage = document.getElementById("questionPage")
+
 function next1 () {
-    qPage.setAttribute("display", "block");
+    if (step === "1") {
+        step = "2"
+            if (card )
+    }
 }
 
 
