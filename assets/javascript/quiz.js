@@ -15,4 +15,5 @@ function countdown() {
     }, 1000);
 }
 
-starterButton.addEventListener("click", countdown() )
+starterButton.addEventListener("click", countdown(), 
+    if (section.hasAttribute)
