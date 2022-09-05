@@ -15,3 +15,7 @@ Main {
     padding: 15%;
 }
 
+.card-hidden {
+    display: none;
+}
+

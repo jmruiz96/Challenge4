@@ -2,9 +2,11 @@ var starterButton = document.getElementById("startBtn")
 var timerEl = document.getElementById("counter");
 
 
-var timeLeft = 90;
+// var timeLeft = 90;
 
 function countdown() {
+    var timeLeft = 90;
+
     var timeInterval = setInterval(function() {
         timerEl.textContent = timeLeft;
         timeLeft--;
@@ -14,6 +16,14 @@ function countdown() {
         }
     }, 1000);
 }
+var qPage = document.getElementById("questionPage")
+function next1 () {
+    qPage.setAttribute("display", "block");
+}
 
-starterButton.addEventListener("click", countdown(), 
-    if (section.hasAttribute)
+
+starterButton.addEventListener("click", countdown);
+starterButton.addEventListener("click", next1);
+
+
+// console.log(next1)
