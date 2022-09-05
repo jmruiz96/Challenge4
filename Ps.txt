@@ -35,3 +35,86 @@ a text input box appears for your initials and submit button
 then use is taken to the scoreboard page  and they see their initials and scored logged 
 as well as any stored scores form current session
 there is also a go back button and clear highscores buttons. 
+
+CSS 
+    header:
+    
+quiz.js
+
+On start question section and submissionPage is set to display none
+
+start button
+    when clicked starts timer and reveals first iteration of questions  
+        event listener click on button
+        toggle display to questions section 
+
+timer
+    set interval function(in milliseconds)
+    counter 90 secs 
+    clearInterval counter = 0 
+        when counter = 0 display none section questions and display submissionPage
+
+question section function 
+    function for each seperate question 
+        populates question texts (h2)
+        list items for possible answers
+            event listener for licks on li
+            vaididate one answer
+            invalid answers reduce timer*** first cut 
+            wait 3-5 second to dsiplay next q
+            create var for score
+        if vaild answer is clicked display in div youre right
+                add var score to var array final score 
+            else display your wrong 
+                add var score 0 to var array final score
+                decrement timer 10seconds 
+        calls question function
+
+section submissionPage
+in span for finalScore parse intArray scores 
+function for storing input and finalScore into localStorage
+    eventListener click submit
+    set into string for local storage 
+        
+
+scoreboard.js
+ function to get stored string of intials + finalScore
+    display in ordered list?
+        figure out way to order by var finalScore
+  link to homepage
+  eventListener for clear scores
+    function to clear local storage 
+
+
+
+
+
+
+ALSO QS FOR quiz
+    Window object represents an open window in the browser.
+    When acessing element by id you do not need a # in the parenthesis
+        You can make a variable using the window object of document.getElementById("ele")
+        you can use that variable to set the style of that element var.style.color = 'blue';
+    Access multiple elements using .querySelectorAll()
+    Access element by ID using .querySelector() 
+        this way you must use a # in the parenthesis and ""
+        -- for multiple cards look at 4.06 set atrb--
+    You can appened the variable youve definded with parentElement.appendChild(varTargeted)
+    var timeLeft is the starting point for timers
+    timers begin with the set Interval function
+        and are ended by the clearInterval(timeInterval)
+        timers/Intervals are timed in millisecond
+    The split() method splits a string into an array of substrings. 
+        The split() method returns the new array. 
+            The split() method does not change the original string. 
+        If (" ") is used as separator, the string is split between words.
+    -- toggle function check activity 4.11--
+    prevent default
+    The change event is fired for <input>, <select>, and <textarea> elements when the user modifies the element's value. 
+    event listeners for key up/down events
+    The stopPropagation() method prevents propagation of the same event from being called.
+        Propagation means bubbling up to parent elements or capturing down to child elements.
+    Event bubbling is a way of event propagation in the HTML DOM. 
+        It relates to the order in which events are propagated in nested elements.
+    can use element.matches("") to ensure event listener only pics up the desired tag 
+    localStorage.setItem("x", x);

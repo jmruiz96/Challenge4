@@ -1,0 +1,17 @@
+body {
+    box-sizing: border-box;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    margin: 1%;
+}
+
+Main {
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    padding: 15%;
+}
+
