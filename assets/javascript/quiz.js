@@ -32,10 +32,31 @@ var qArr = [
 console.log(qArr[0]["question"]);
 
 sectionTwo.children[0].textContent = (qArr[0]["question"])
-sectionTwo.children[1].children[0].textContent 
+sectionTwo.children[1].children[0].textContent = (qArr[0].wrongAs[0])
+sectionTwo.children[1].children[1].textContent = (qArr[0].wrongAs[1])
+sectionTwo.children[1].children[2].textContent = (qArr[0].wrongAs[2])
+sectionTwo.children[1].children[3].textContent = (qArr[0]["rightA"])
+
+var index =0;
+var currentQ;
+
+function navigate(direction) {
+    index = index + direction;
+    if (index <0) {
+        index = qArr.length - 1;
+    } else if ( index > qArr.length -1) {
+        index = 0;
+    }
+    currentQ = qArr[index];
+    sectionTwo.children[0].textContent = (currentQ["question"])
+    sectionTwo.children[1].children[0].textContent = (currentQ.wrongAs[0])
+    sectionTwo.children[1].children[1].textContent = (currentQ.wrongAs[1])
+    sectionTwo.children[1].children[2].textContent = (currentQ.wrongAs[2])
+    sectionTwo.children[1].children[3].textContent = (currentQ["rightA"])
+};
 
 function countdown() {
-    var timeLeft = 90;
+    var timeLeft = 9;
 
     var timeInterval = setInterval(function() {
         timerEl.textContent = timeLeft;
