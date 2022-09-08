@@ -21,7 +21,7 @@ var qArr = [
     {
         questionOb: "Which operator means not equal to?",
         possibleA: [ " = ", " == ", " === ", "!=" ],
-        rightA: " != "
+        rightA: "!="
     },
 
     { 
@@ -111,7 +111,9 @@ function showQuestions() {
 
 var answerEl = document.getElementById("answers");
 answerEl.addEventListener("click", function pickAnswer(e){
-    if (e.target.textContent === currentQ.rightA){
+    console.log(e.target.textContent)
+    console.log(qArr[qIndex].rightA)
+    if (e.target.textContent === qArr[qIndex].rightA){
         timeLeft +=5;
         rightOrWrong.textContent = "Correct :)";
     } else {
