@@ -1,14 +1,18 @@
 # Challenge4
 ## Description
 
-- This application was designed to demonstrate Javvscript and the use of it's logic with vairous functions.
-- I was provided with starter code and was able to define multiple variables and randomize them to generate a password. 
-- There are also validations for if the incorrect length is input or if none of the options are choosen but a valid length is input.
+- This application was designed to demonstrate Javascript and uses of various functions, objects, and methods.
+- I built this application from scratch and was able to make a functional quiz that has questions and answers and a timer that is incremented and decremented depending on if the correct answer was chosen or not. 
+- After that the user can input there intials and submit them and their score to the highscore page.
 
-## Usage
-[Live Link](-)
+## Live link and screenshots
+[Live Link](https://jmruiz96.github.io/Quiz.4/)
 
-![Webpage Screenshot](-)
+![Webpage Screenshot](./assets/imgs/Screen%20Shot%202022-09-07%20at%2011.42.12%20PM.png)
+![Webpage Screenshot](./assets/imgs/Screen%20Shot%202022-09-07%20at%2011.42.19%20PM.png)
+
+![Webpage Screenshot](./assets/imgs/Screen%20Shot%202022-09-07%20at%2011.42.04%20PM.png)
+
 
 
 ## Credits
