@@ -8,6 +8,7 @@ var sectionThree = document.getElementById("submissionPage");
 var quizQ = document.getElementById("question");
 var answers = document.querySelectorAll("#answers");
 var qIndex = 0;
+var resultEl = document.getElementById("finalScore");
 
 var qArr = [
     {
@@ -73,6 +74,8 @@ var qArr = [
 
 function showQuestions() {
     var currentQ = qArr[qIndex];
+    sectionOne.setAttribute("class", "card-hidden");
+    sectionTwo.setAttribute("class", "car-revealed");
     quizQ.textContent = currentQ.questionOb;
     answers.innerHTML = "";
     for (var i = 0; i < currentQ.possibleA.length; i++){
@@ -101,7 +104,32 @@ answerEl.addEventListener("click", function answerClick(e){
         resultEl.style.display = "block";
         resultEl.textContent = "Wrong :(";
     }
-})
+
+    qIndex++
+    var timerId;
+    if (qIndex === qArr.length) {
+        clearTimeout(timerId);
+        return showScore();
+    }
+    setTimeout(showQuestions, 500)
+});
+
+function clearResult (){
+    resultEl.style.display = "none";
+}
+
+function showScore() {
+    sectionTwo.setAttribute("class", "card-hidden");
+    sectionThree.setAttribute("class", "car-revealed");
+    resultEl.style.display = "block";
+    
+    if (timeLeft < 0 ) {
+        resultEl.textContent = "0"
+    } else {
+        resultEl.textContent = timeLeft
+    }
+};
+
 
 
 
@@ -120,9 +148,6 @@ function countdown() {
         timeLeft--;
 
 
-    // sectionOne.setAttribute("class", "card-hidden");
-    // sectionTwo.setAttribute("class", "card-revealed");
-                 
         if(timeLeft < 0) {
             clearInterval(timeInterval);
             // if (step === "two") {
@@ -137,7 +162,21 @@ function countdown() {
     showQuestions();
 };
 
+var submitBtn = document.getElementById("submit");
+var inputEl = document.getElementById("initials");
 
+submitBtn.addEventListener("click", function saveScore(e){
+    e.preventDefault();
+    var initials = inputEl.value.trim();
+    if (initials === "") {
+        alert("Don't you want to let the world know who got that score?")
+        return "";
+    }
+
+    var scores; 
+    if (JSON.parse(localStorage.getItem)) 
+
+})
 
 // var step = "one"
 // not needed
