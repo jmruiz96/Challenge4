@@ -115,10 +115,10 @@ answerEl.addEventListener("click", function pickAnswer(e){
     console.log(qArr[qIndex].rightA)
     if (e.target.textContent === qArr[qIndex].rightA){
         timeLeft +=5;
-        rightOrWrong.textContent = "Correct :)";
+        rightOrWrong.textContent = "That answer was correct :)";
     } else {
         timeLeft -=8;
-        rightOrWrong.textContent = "Wrong :(";
+        rightOrWrong.textContent = "That answer was wrong :(";
     }
     // e.preventDefault();
     // var userPick = e.target.textContent;
@@ -188,7 +188,7 @@ submitBtn.addEventListener("click", function saveScore(e){
      } 
     var score = {
         initials: initials,
-        highscores: timeleft,
+        highscores: timeLeft,
     };
     highscores.push(score);
     localStorage.setItem("highscores", JSON.stringify(highscores));
