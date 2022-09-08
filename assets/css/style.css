@@ -15,10 +15,6 @@ Main {
     padding: 15%;
 }
 
-section {
-    justify-content: center;
-}
-
 .card-hidden {
     display: none;
 }

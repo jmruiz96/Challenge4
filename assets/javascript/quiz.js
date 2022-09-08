@@ -6,10 +6,10 @@ var sectionOne = document.getElementById("startPage");
 var sectionTwo = document.getElementById("questionPage");
 var sectionThree = document.getElementById("submissionPage");
 var quizQ = document.getElementById("question");
-var answers = document.querySelectorAll("#answers");
+var answers = document.getElementById("answers");
 var qIndex = 0;
 var resultEl = document.getElementById("finalScore");
-
+var timeLeft = 90;
 var qArr = [
     {
         questionOb: "Where should the link to Javascript be located in an HTML file?",
@@ -72,12 +72,34 @@ var qArr = [
 // }
 // all this just not working starting over with showQuestions function.
 
+
+function countdown() {
+   
+    var timeInterval = setInterval(function() {
+        timerEl.textContent = timeLeft;
+        timeLeft--;
+
+
+        if(timeLeft < 0) {
+            clearInterval(timeInterval);
+            // if (step === "two") {
+            //     step = "three";
+            // not needed
+        //         sectionTwo.setAttribute("class", "card-hidden");
+        //         sectionThree.setAttribute("class", "car-revealed");
+        //     // }
+        }
+    }, 1000);
+    // navigate(0); not going this route going to make a display q function
+    showQuestions();
+};
+
 function showQuestions() {
     var currentQ = qArr[qIndex];
     sectionOne.setAttribute("class", "card-hidden");
     sectionTwo.setAttribute("class", "car-revealed");
     quizQ.textContent = currentQ.questionOb;
-    answers.innerHTML = "";
+    answers.innerText = "";
     for (var i = 0; i < currentQ.possibleA.length; i++){
         var answerBtn = document.createElement("button");
         answerBtn.setAttribute("class", "btn");
@@ -140,27 +162,6 @@ function showScore() {
 
 // });
 
-function countdown() {
-    var timeLeft = 90;
-
-    var timeInterval = setInterval(function() {
-        timerEl.textContent = timeLeft;
-        timeLeft--;
-
-
-        if(timeLeft < 0) {
-            clearInterval(timeInterval);
-            // if (step === "two") {
-            //     step = "three";
-            // not needed
-        //         sectionTwo.setAttribute("class", "card-hidden");
-        //         sectionThree.setAttribute("class", "car-revealed");
-        //     // }
-        }
-    }, 1000);
-    // navigate(0); not going this route going to make a display q function
-    showQuestions();
-};
 
 var submitBtn = document.getElementById("submit");
 var inputEl = document.getElementById("initials");
