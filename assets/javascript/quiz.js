@@ -173,10 +173,20 @@ submitBtn.addEventListener("click", function saveScore(e){
         return "";
     }
 
-    var scores; 
-    if (JSON.parse(localStorage.getItem)) 
-
-})
+    var highscores; 
+    if (JSON.parse(localStorage.getItem("highScores")) !=null)
+        highscores = JSON.parse(window.localStorage.getItem(highscores));
+    else 
+        highscores = []; 
+    var score = {
+        initials: initials,
+        highscores: timeleft
+    };
+    highscores.push(score);
+    localStorage.setItem("highscores", JSON.stringify(highscores));
+    location.href= "scoreboard.html";
+    saveScore();
+});
 
 // var step = "one"
 // not needed
