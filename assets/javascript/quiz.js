@@ -10,6 +10,7 @@ var answers = document.getElementById("answers");
 var qIndex = 0;
 var resultEl = document.getElementById("finalScore");
 var timeLeft = 90;
+var rightOrWrong = document.getElementById("rightOrWrong")
 var qArr = [
     {
         questionOb: "Where should the link to Javascript be located in an HTML file?",
@@ -93,7 +94,7 @@ function countdown() {
     // navigate(0); not going this route going to make a display q function
     showQuestions();
 };
-
+var currentQ = qArr[qIndex];
 function showQuestions() {
     var currentQ = qArr[qIndex];
     sectionOne.setAttribute("class", "card-hidden");
@@ -109,25 +110,32 @@ function showQuestions() {
 };
 
 var answerEl = document.getElementById("answers");
-answerEl.addEventListener("click", function answerClick(e){
-    e.preventDefault();
-    if (!e.target.matches("button"))
-    return;
-    var userPick = e.target.textContent;
-    var question = qArr[qIndex];
-    var correct = question.possibleA[question.rightA];
-
-    if (userPick === correct) {
-        timeLeft +=2;
-        resultEl.style.display = "block";
-        resultEl.textContent = "Correct :)";
+answerEl.addEventListener("click", function pickAnswer(e){
+    if (e.target.textContent === currentQ.rightA){
+        timeLeft +=5;
+        rightOrWrong.textContent = "Correct :)";
     } else {
         timeLeft -=8;
-        resultEl.style.display = "block";
-        resultEl.textContent = "Wrong :(";
+        rightOrWrong.textContent = "Wrong :(";
     }
+    // e.preventDefault();
+    // var userPick = e.target.textContent;
+    // var question = qArr[qIndex];
+    // var correct = question.possibleA[question.rightA];
 
+    // if (userPick === correct) {
+    //     timeLeft +=5;
+    //     rightOrWrong.textContent = "Correct :)"
+
+
+    // } else {
+    //     timeLeft -=8;
+    //     rightOrWrong.textContent = "Wrong :(";
+    // }
+
+    
     qIndex++
+
     var timerId;
     if (qIndex === qArr.length) {
         clearTimeout(timerId);
@@ -136,15 +144,11 @@ answerEl.addEventListener("click", function answerClick(e){
     setTimeout(showQuestions, 500)
 });
 
-function clearResult (){
-    resultEl.style.display = "none";
-}
 
 function showScore() {
     sectionTwo.setAttribute("class", "card-hidden");
     sectionThree.setAttribute("class", "car-revealed");
     resultEl.style.display = "block";
-    
     if (timeLeft < 0 ) {
         resultEl.textContent = "0"
     } else {
@@ -175,13 +179,14 @@ submitBtn.addEventListener("click", function saveScore(e){
     }
 
     var highscores; 
-    if (JSON.parse(localStorage.getItem("highScores")) !=null)
+    if (JSON.parse(localStorage.getItem("highScores")) !=null) {
         highscores = JSON.parse(window.localStorage.getItem(highscores));
-    else 
-        highscores = []; 
+     } else {
+        highscores = [];
+     } 
     var score = {
         initials: initials,
-        highscores: timeleft
+        highscores: timeleft,
     };
     highscores.push(score);
     localStorage.setItem("highscores", JSON.stringify(highscores));
